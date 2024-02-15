@@ -8,10 +8,12 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(4),
+      margin: const EdgeInsets.only(right: 16),
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage(category.image), fit: BoxFit.fill),
+          image: AssetImage(category.image),
+          fit: BoxFit.fill,
+        ),
         borderRadius: BorderRadius.circular(18),
       ),
       height: 90,
@@ -19,7 +21,7 @@ class CategoryCard extends StatelessWidget {
       child: Center(
         child: Text(
           category.categoryName,
-          style:const TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
             fontSize: 20,
