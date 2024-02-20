@@ -27,18 +27,18 @@ class NewsTile extends StatelessWidget {
             style: TextStyle(
               color: Colors.black87,
               fontSize: 20,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w700,
             ),
           ),
           const SizedBox(
             height: 8,
           ),
           const Text(
-            'newsnewsnewsnewsnewsnewsnewsnewsnewsnews',
+            'newsnewsnewsnewsnewsnewsnews newsnews news',
             maxLines: 2,
             style: TextStyle(
               color: Colors.grey,
-              fontSize: 12,
+              fontSize: 15,
             ),
           ),
         ],

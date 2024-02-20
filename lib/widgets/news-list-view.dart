@@ -12,7 +12,10 @@ class NewsListView extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         childCount: 10,
         (context, index) {
-          return const NewsTile();
+          return const Padding(
+            padding:  EdgeInsets.only(bottom: 10),
+            child:  NewsTile(),
+          );
         },
       ),
     );
