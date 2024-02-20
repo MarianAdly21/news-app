@@ -4,9 +4,10 @@ import 'package:news_app/models/article_model.dart';
 class NewsService {
   final Dio dio;
   NewsService(this.dio);
-  getNews() async {
+  
+  Future<List<ArticleModel>> getNews() async {
     var response = await dio.get(
-        'https://newsapi.org/v2/top-headlines?apiKey=12e9a0682ecf4e5d94aa2a7d4719e0cb&country=eg&category=general');
+        'https://newsapi.org/v2/top-headlines?country=us&apiKey=12e9a0682ecf4e5d94aa2a7d4719e0cb&category=general');
 
     Map<String, dynamic> jsonData = response.data;
 
@@ -20,7 +21,8 @@ class NewsService {
         subTitle: article["description"],
       );
       articleList.add(articleModel);
-    
     }
+
+    return articleList;
   }
 }
