@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/models/article_model.dart';
 
 class NewsTile extends StatelessWidget {
-  const NewsTile({super.key});
+  const NewsTile({super.key, required this.articleModel});
+  final ArticleModel articleModel;
 
   @override
   Widget build(BuildContext context) {
@@ -11,20 +13,26 @@ class NewsTile extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(16),
-            child: Image.network(
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw7HjpHNuzVssA9WGGtdCI0kC6gnLmjbMVuw&usqp=CAU',
-              height: 200,
-              fit: BoxFit.cover,
-            ),
+            child: articleModel.image != null
+                ? Image.network(
+                    articleModel.image!,
+                    height: 200,
+                    fit: BoxFit.cover,
+                  )
+                : Image.asset(
+                    'assets/error.jpg',
+                    fit: BoxFit.cover,
+                    height: 200,
+                  ),
           ),
           const SizedBox(
             height: 12,
           ),
-          const Text(
-            'newsnewsnewsnewsnewsnewsnewsnewsnewsnewsnewsnewsnewsnewsnewsnewsnewsnewsnewsnews',
+          Text(
+            articleModel.title,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black87,
               fontSize: 20,
               fontWeight: FontWeight.w700,
@@ -33,10 +41,10 @@ class NewsTile extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          const Text(
-            'newsnewsnewsnewsnewsnewsnews newsnews news',
+          Text(
+            articleModel.subTitle ?? '',
             maxLines: 2,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.grey,
               fontSize: 15,
             ),
